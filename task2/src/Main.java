@@ -16,19 +16,42 @@ public class Main {
         double greatest = 0;
         double average = 0;
         double smallest = 0;
-        //todo дописать логику программы ниже.
+
+
+        // Узнаем наибольший вес череез if-else
+
+        /*
+        if (first > second && first > third) {
+            greatest = first;
+        }
+        if (second > first && second > third) {
+            greatest = second;
+        }
+        if (third > first && third > second) {
+            greatest = third;
+        }
+        */
+
+        // Узнаем наибольный вес через тенарные операторы
+
+
+        // Узнаем средний вес
+        average = ((first + second + third) / 3);
+
+        // Узнаем наименьший вес
+
+        if (first < second && first < third) {
+            smallest = first;
+        } else if (second < first && second < third) {
+            smallest = second;
+        } else if (third < first && third < second) {
+            smallest = third;
+        }
 
 
 
-
-
-
-
-        //todo
-
-
-        System.out.println("Наибольший вес: " + 10);
-        System.out.println("Средний вес: " + 9);
-        System.out.println("Наименьший вес: " + 1);
+        System.out.println("Наибольший вес: " + greatest);
+        System.out.println("Средний вес: " + average);
+        System.out.println("Наименьший вес: " + smallest);
     }
 }
