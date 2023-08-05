@@ -18,25 +18,27 @@ public class Main {
         double smallest = 0;
 
 
-        // Узнаем наибольший вес череез if-else
-
         /*
+        // Узнаем наибольший вес
+
         if (first > second && first > third) {
             greatest = first;
-        }
-        if (second > first && second > third) {
+        } else if (second > first && second > third) {
             greatest = second;
-        }
-        if (third > first && third > second) {
+        } else {
             greatest = third;
         }
-        */
-
-        // Узнаем наибольный вес через тенарные операторы
 
 
         // Узнаем средний вес
-        average = ((first + second + third) / 3);
+        if ((first > second && first < third) || (first < second && first > third)) {
+            average = first;
+        } else if ((second > first && second < third) || (second < first && second > third)) {
+            average = second;
+        } else {
+            average = third;
+        }
+
 
         // Узнаем наименьший вес
 
@@ -44,14 +46,58 @@ public class Main {
             smallest = first;
         } else if (second < first && second < third) {
             smallest = second;
-        } else if (third < first && third < second) {
+        } else {
             smallest = third;
         }
+        */
 
+        /*
+        // Решение через более красивый код
 
+        if (first > second && first > third) {
+            greatest = first;
+        } else if (first < second && first < third) {
+            smallest = first;
+        } else {
+            average = first;
+        }
+
+        if (second > first && second > third) {
+            greatest = second;
+        } else if (second < first && second < third) {
+            smallest = second;
+        } else {
+            average = second;
+        }
+
+        if (third > first && third > second) {
+            greatest = third;
+        } else if (third < first && third < second) {
+            smallest = third;
+        } else {
+            average = third;
+        }
+        */
+
+        /*
+        // Решение через тенарный оператор
+        greatest = (first > second && first > third) ? first : (second > first && second > third) ? second
+                : third;
+        smallest = (first < second && first < third) ? first : (second < first && second < third) ? second
+                : third;
+        average = (first != greatest && first != smallest) ? first
+                : (second != greatest && second != smallest) ? second : third;
+        */
+
+        // Упрощение тенарного
+        greatest = first > second && first > third ? first : second > third ? second : third;
+        smallest = first < second && first < third ? first : second < third ? second : third;
+        average = first != greatest && first != smallest ? first :
+                second != greatest && second != smallest ? second : third;
 
         System.out.println("Наибольший вес: " + greatest);
         System.out.println("Средний вес: " + average);
         System.out.println("Наименьший вес: " + smallest);
+
     }
 }
